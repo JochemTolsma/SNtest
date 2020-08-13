@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Tutorial CSR - Basics in R - SNA for Social Sciences</title>
+<meta property="og:title" content="Tutorial CSR - Basics in R - SNA for Social Sciences">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/welcome/">Welcome</a></li>
+    
+    <li><a href="/dyads/">Week 1 - dyads</a></li>
+    
+    <li><a href="https://github.com/JochemTolsma/SNtest.git">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Tutorial CSR - Basics in R</h1>
+
+    
+    <span class="article-date">0001-01-01</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>Latest Version: 13-08-2020</p>
+<p>Please email any comments to: <a href="mailto:j.tolsma@ru.nl" class="email">j.tolsma@ru.nl</a></p>
+<div id="getting-up-and-running" class="section level1">
+<h1>Getting up and running</h1>
+<ul>
+<li>install the latest version of R: <a href="https://cran.r-project.org/">R</a></li>
+<li>install the latest version of RStudio: <a href="www.rstudio.com">RStudio</a></li>
+<li>open RStudio and follow a brief tour/tutorial
+<ul>
+<li><a href="https://web.cs.ucla.edu/~gulzar/rstudio/basic-tutorial.html">brief tour of Gulzar</a></li>
+<li>lot of youtube videos for RStudio</li>
+</ul></li>
+<li>Open a new R-script (via file –&gt; new –&gt; RScript, Ctrl+Shift+N)</li>
+<li>I will show you around the major subwindows and taps in RStudio</li>
+</ul>
+<p>Make sure to start your script with your name, date.<br />
+Always make to start with a clean workspace.<br />
+Always make sure to start with the latest versions.
+Always define your workdirectory
+Thus your RScript will look something like this:</p>
+<pre><code>###########################
+#Title: Tutorial CSR
+#Author: J Tolsma
+#version: 30-10-2019
+###########################
+
+##########################
+#before I start I will always do this
+
+#start with clean workspace 
+rm(list=ls())
+
+#install.packages I will need later here
+install.packages(&quot;installr&quot;) #you  first install packages
+require(installr) #then you will need to load them. This package is used to simply update R
+install.packages(&quot;foreign&quot;)
+require(foreign) #used to read in spss data files
+
+#update if necessarry
+updateR()
+
+#define workdirectory, note the double backslashes
+setwd(&#39;C:\\Users\\Jochem\\Documents\\CRP\\&#39;) #change to your own workdirectory
+</code></pre>
+<p>Do you see I start some lines with a <code>#</code> these lines are comments and not code/commands. This is similar as the <code>*</code> sign in SPSS.<br />
+To run some code, you you place your cursor in the line and hit Ctrl+Enter. You may also select the code you want to run, or copy and paste it directly in the console window. To see which commands you have executed, you may want to have a look at the history tab (normally in the upper right corner).</p>
+<blockquote>
+<p>Hint 1: In the upper right corner of the code blocks you see a <em>copy-and-paste</em> sign. You may use this to copy and paste the code of this tutorial in your own script.
+Hint 2: You really want to learn R? Never ever copy and paste code. Type the code yourself.</p>
+</blockquote>
+</div>
+<div id="i-dont-understand-the-code" class="section level1">
+<h1>I don’t understand the code!!</h1>
+<p>When you see <code>functionname()</code> it means we use a build-in function of R
+If you want to see how lines/commands/functions work, try to decipher them from the inside out. Thus if you want to dechiper ‘rm(list=ls())’:</p>
+<ul>
+<li>ls()</li>
+<li>list=ls()</li>
+<li>list</li>
+</ul>
+<p>Let’s give it a go:</p>
+<pre class="r"><code>tesvariable &lt;- 4
+ls()</code></pre>
+<pre><code>## [1] &quot;tesvariable&quot;</code></pre>
+<pre class="r"><code>list=ls()
+list</code></pre>
+<pre><code>## [1] &quot;tesvariable&quot;</code></pre>
+<pre class="r"><code>ls()</code></pre>
+<pre><code>## [1] &quot;list&quot;        &quot;tesvariable&quot;</code></pre>
+<pre class="r"><code>rm(list)
+ls()</code></pre>
+<pre><code>## [1] &quot;tesvariable&quot;</code></pre>
+<pre class="r"><code>#? :-)
+rm(list=ls())
+ls()</code></pre>
+<pre><code>## character(0)</code></pre>
+<p>If you want to know more about specific functions, try to use the help function.
+For example try the following:
+* <code>?ls</code>
+* <code>?rm</code>
+At first it will be difficult to read the R Documentation pages. Don’t worry, you will get hang of it.</p>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
