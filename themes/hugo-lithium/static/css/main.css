@@ -55,14 +55,14 @@ code {
 }
 
 .nav-logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .nav-logo img {
   display: block;
   max-height: 40px;
   width: auto;
-  border-radius: 50%;
+  border-radius: 0%;
 }
 
 .nav-links {
