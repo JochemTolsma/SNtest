@@ -1,0 +1,115 @@
+---
+title: Introducation
+author: Jochem
+date: '2020-08-13'
+slug: introducation
+categories: []
+tags: []
+---
+
+
+```{r, globalsettings, echo=FALSE, warning=FALSE, message=FALSE}
+#knitr::opts_chunk$set(comment=NA, fig.width=6, fig.height=6))
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(fig.pos = 'H')
+require("formatR")
+```
+
+Latest Version: `r format(Sys.Date(), "%d-%m-%Y")`
+
+Please email any comments to: j.tolsma@ru.nl	
+
+# Getting up and running
+
+* install the latest version of R: [R](https://cran.r-project.org/)
+* install the latest version of RStudio: [RStudio](www.rstudio.com) 
+* open RStudio and follow a brief tour/tutorial
+  + [brief tour of Gulzar](https://web.cs.ucla.edu/~gulzar/rstudio/basic-tutorial.html)
+  + lot of youtube videos for RStudio
+* Open a new R-script (via file --> new --> RScript, Ctrl+Shift+N)
+* I will show you around the major subwindows and taps in RStudio
+
+Make sure to start your script with your name, date.  
+Always make to start with a clean workspace.   
+Always make sure to start with the latest versions.
+Always define your workdirectory
+Thus your RScript will look something like this:
+
+```
+###########################
+#Title: Tutorial CSR
+#Author: J Tolsma
+#version: 30-10-2019
+###########################
+
+##########################
+#before I start I will always do this
+
+#start with clean workspace 
+rm(list=ls())
+
+#install.packages I will need later here
+install.packages("installr") #you  first install packages
+require(installr) #then you will need to load them. This package is used to simply update R
+install.packages("foreign")
+require(foreign) #used to read in spss data files
+
+#update if necessarry
+updateR()
+
+#define workdirectory, note the double backslashes
+setwd('C:\\Users\\Jochem\\Documents\\CRP\\') #change to your own workdirectory
+
+```
+
+```{r start, echo=FALSE}
+#start with clean workspace 
+rm(list=ls())
+
+#packages
+require(installr)
+require(foreign) 
+
+#update 
+#updateR()
+
+
+```
+
+
+Do you see I start some lines with a `#` these lines are comments and not code/commands. This is similar as the `*` sign in SPSS.  
+To run some code, you you place your cursor in the line and hit Ctrl+Enter. You may also select the code you want to run, or copy and paste it directly in the console window. To see which commands you have executed, you may want to have a look at the history tab (normally in the upper right corner). 
+
+> Hint 1: In the upper right corner of the code blocks you see a *copy-and-paste* sign. You may use this to copy and paste the code of this tutorial in your own script. 
+> Hint 2: You really want to learn R? Never ever copy and paste code. Type the code yourself. 
+
+# I don't understand the code!!
+When you see `functionname()` it means we use a build-in function of R
+If you want to see how lines/commands/functions work, try to decipher them from the inside out. Thus if you want to dechiper 'rm(list=ls())':  
+
+* ls()
+* list=ls()
+* list
+
+Let's give it a go: 
+
+```{r}
+tesvariable <- 4
+ls()
+list=ls()
+list
+ls()
+rm(list)
+ls()
+#? :-)
+rm(list=ls())
+ls()
+
+```
+
+If you want to know more about specific functions, try to use the help function. 
+For example try the following:
+* `?ls`
+* `?rm`
+At first it will be difficult to read the R Documentation pages. Don't worry, you will get hang of it.
